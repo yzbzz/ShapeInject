@@ -319,27 +319,6 @@ public class ShapeInject {
         }
     }
 
-    public void background1() {
-        if (null != mTextView) {
-            int[] colors = new int[]{mPressedTextColor, mPressedTextColor, mNormalTextColor, mDisableTextColor};
-            mColorStateList = new ColorStateList(mStates, colors);
-            mTextView.setTextColor(mColorStateList);
-        }
-
-        if (null != mView) {
-            mView.post(new Runnable() {
-                @Override
-                public void run() {
-                    setShape();
-                    background(mPressedBackground, mPressedBackgroundColor, mPressedStrokeWidth, mPressedStrokeColor);
-                    background(mDisableBackground, mDisableBackgroundColor, mDisableStrokeWidth, mDisableStrokeColor);
-                    background(mNormalBackground, mNormalBackgroundColor, mNormalStrokeWidth, mNormalStrokeColor);
-                    mView.setBackground(mStateBackground);
-                }
-            });
-        }
-    }
-
     private void background(GradientDrawable gradientDrawable, int color, int strokeWidth, int strokeColor) {
         if (null != gradientDrawable) {
             gradientDrawable.setShape(mGradientShapeType);

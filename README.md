@@ -1,66 +1,48 @@
-# StylePhrase - Android string formatting
+# ShapeInject
 
-StylePhrase is an Android string resource templating library
-
-在项目中，我们经常会碰到一行文本，部分文字要显示不同的颜色和大小，或者其他样式。使用`StylePhrase`可以很方便的解决这个问题。只需要把需要显示其它样式的文本使用分割符包裹一下，就可以对文本进行各种操作。
-
-本库主要基于以下项目做了修改，更方便使用和扩展：
-
-https://github.com/square/phrase
-
-https://github.com/THEONE10211024/ColorPhrase
+使用ShapeInject，可能很方便给View和ViewGroup设置背景，不用再写selector文件啦
 
 # Preview
 
-![device-one-separator](./screenshot/device-one-separator.png)  ![device-one-separator](./screenshot/device-two-separator.png)
-
-![device-one-separator](./screenshot/device-multi-separator.png)  ![device-one-separator](./screenshot/device-custom-separator.png)
+![device-shape](./screenshot/device-shape.png)  
 
 # Usage
 
-**注意：对于比较特殊的字符，使用StylePhrase会导致一些问题，尽量使用{}、[]和()作为分割符**
+XML方式：
 
-大部分时候，一行文本我们需要显示2种或3种样式，所以`StylePhrase`默认提供两种分割符`{}`和`[]`，当然你也可以修改默认的分割符。为了方便使用，`StylePhrase`默认提供了`setInnerFirstColor`、`setInnerFirstSize`、`setInnerSecondColor`、`setInnerSecondSize`
-
-一种操作符
-
-```kotlin
-// 永生不过是场{幻梦}，唯吾{所爱}不朽
-val oneSeparatorString = getString(R.string.text_phrase_one)
-val colorAndSize = StylePhrase(oneSeparatorString)
-                .setInnerFirstColor(Color.BLUE)
-                .setInnerFirstSize(20)
-tv_content.text = colorAndSize.format()
+```xml
+<com.shape.ShapeTextView
+    android:id="@+id/tv_all_xml"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:clickable="true"
+    android:gravity="center"
+    android:padding="5dp"
+    android:text="XML_ALL"
+    app:layout_constraintHorizontal_weight="1"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toLeftOf="@id/ll_all_code"
+    app:layout_constraintTop_toBottomOf="@id/tv_dash_gap_code"
+    app:normalBackgroundColor="#ff4141"
+    app:normalStrokeColor="#4897fa"
+    app:normalStrokeWidth="2dp"
+    app:normalTextColor="#34c749"
+    app:pressedBackgroundColor="#4897fa"
+    app:pressedStrokeColor="#ff4141"
+    app:pressedTextColor="#fdbc40"
+    app:shapeRadius="5dp" />
 ```
 
-二种操作符
+代码方式：
 
 ```kotlin
-// 何以{缘起}?何以[缘灭]?当以{剑歌}问之
-val twoSeparatorString = getString(R.string.text_phrase_two)
-val colorAndSize = StylePhrase(twoSeparatorString)
-                .setInnerFirstColor(Color.BLUE)
-                .setInnerFirstSize(20)
-                .setInnerSecondColor(Color.RED)
-                .setInnerSecondSize(25)
-tv_content.text = colorAndSize.format()
-```
-
-多种操作符
-
-```kotlin
-// 凤兮{凤兮}归[故乡],遨(游)四海(求其凰)
-val colorAndSize = StylePhrase(multiSeparatorString)
-                .setInnerFirstColor(Color.BLUE)
-                .setInnerFirstSize(20)
-                .setInnerSecondColor(Color.RED)
-                .setInnerSecondSize(25)
-val builder = StylePhrase.Builder()
-builder.separator = "()"
-builder.setColor(Color.GREEN)
-builder.setSize(18)
-colorAndSize.addBuilder(builder)
-tv_content.text = colorAndSize.format()
+val btnRoundCode: Button = findViewById(R.id.tv_round_code)
+val roundColor = getColor("#46b942")
+val pressBgColor = getColor("#994897fa")
+val disableBgColor = getColor("#cc999999")
+val normalBgColor = getColor("#3b8fed")
+ShapeInject.inject(btnRoundCode).setShapeType(ShapeInject.TYPE_ROUND).setStroke(2, roundColor).setBackgroundColor(pressBgColor, disableBgColor, normalBgColor).background()
 ```
 
 更多操作可以参考DEMO
@@ -82,7 +64,7 @@ allprojects {
 
 2.在你的工程目录添加
 
-`StylePhrase`依赖`appcompat-v7`，所以需要同时引用`appcompat-v7`包
+`ShapeInject`依赖`appcompat-v7`，所以需要同时引用`appcompat-v7`包
 
 ```groovy
 dependencies {

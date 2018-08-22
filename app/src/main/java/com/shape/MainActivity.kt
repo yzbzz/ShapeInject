@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
                 .setStroke(llStrokeWidth, llStrokePressColor, llStrokeNormalColor)
                 .setTextColor(llPressedTextColor, llPressedTextColor, llNormalTextColor, tvAllCode)
                 .setRadii(radii)
-                .background1()
+                .background()
     }
 
     private fun getColor(colorStr: String): Int {
