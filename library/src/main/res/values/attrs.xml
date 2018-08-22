@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ShapeInject">
+
+        <attr name="normalBackgroundColor" format="color|reference" />
+        <attr name="pressedBackgroundColor" format="color|reference" />
+        <attr name="disableBackgroundColor" format="color|reference" />
+
+        <attr name="shapeRadius" format="dimension|reference" />
+
+        <attr name="normalTextColor" format="color|reference" />
+        <attr name="pressedTextColor" format="color|reference" />
+        <attr name="disableTextColor" format="color|reference" />
+
+        <attr name="strokeDashWidth" format="dimension|reference" />
+        <attr name="strokeDashGap" format="dimension|reference" />
+
+        <attr name="normalStrokeWidth" format="dimension|reference" />
+        <attr name="pressedStrokeWidth" format="dimension|reference" />
+        <attr name="disableStrokeWidth" format="dimension|reference" />
+
+        <attr name="normalStrokeColor" format="color|reference" />
+        <attr name="pressedStrokeColor" format="color|reference" />
+        <attr name="disableStrokeColor" format="color|reference" />
+
+        <attr name="animationDuration" format="integer|reference" />
+
+        <attr name="shapeType">
+            <enum name="oval" value="0x01" />
+            <enum name="round" value="0x02" />
+            <enum name="round_rect" value="0x04" />
+            <enum name="segment" value="0x08" />
+        </attr>
+
+        <attr name="direction">
+            <enum name="left" value="0x0010" />
+            <enum name="right" value="0x0020" />
+            <enum name="top" value="0x0040" />
+            <enum name="bottom" value="0x0080" />
+        </attr>
+
+    </declare-styleable>
+
+</resources>
