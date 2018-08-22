@@ -1,0 +1,2 @@
+# ShapeInject
+使用ShapeInject，可能很方便给View和ViewGroup设置背景，不用再写selector文件啦
