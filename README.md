@@ -71,9 +71,9 @@ allprojects {
 
 ```groovy
 dependencies {
-	implementation 'com.github.yzbzz:StylePhrase:1.0.3'
+	implementation 'com.github.yzbzz:ShapeInject:1.0.1'
     implementation 'com.android.support:appcompat-v7:$version'
 }
 ```
 
-你也可以直接下载`StylePhrase`类放到你的工程中
+你也可以直接下载`ShapeInject`类放到你的工程中
