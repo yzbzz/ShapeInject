@@ -42,7 +42,10 @@ val roundColor = getColor("#46b942")
 val pressBgColor = getColor("#994897fa")
 val disableBgColor = getColor("#cc999999")
 val normalBgColor = getColor("#3b8fed")
-ShapeInject.inject(btnRoundCode).setShapeType(ShapeInject.TYPE_ROUND).setStroke(2, roundColor).setBackgroundColor(pressBgColor, disableBgColor, normalBgColor).background()
+ShapeInject.inject(btnRoundCode).setShapeType(ShapeInject.TYPE_ROUND)
+    .setStroke(2, roundColor)
+    .setBackgroundColor(pressBgColor, disableBgColor, normalBgColor)
+    .background()
 ```
 
 更多操作可以参考DEMO
